@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".payment.PaymentFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_fragment_payment_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_round_header"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="@dimen/header_vertical_padding">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/iv_fragment_payment_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/lbl_payment"
+                    style="@style/fragment_header_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@id/iv_fragment_payment_back"
+                    android:text="@string/lbl_payment_text"
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/svajalah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_fragment_payment_title">
+
+            <LinearLayout
+                android:id="@+id/baseLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="@dimen/margin_between_header_and_component">
+
+                    <ImageView
+                        android:id="@+id/iv_warning_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="1"
+                        android:src="@drawable/ic_baseline_warning_24"
+                        app:tint="@color/flat_red_1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@+id/iv_warning_icon"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@string/unboxing_video_warning"
+                        android:textColor="@color/flat_red_1"
+                        android:textStyle="bold|italic" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24dp">
+
+                    <TextView
+                        android:id="@+id/lbl_alamat_pengiriman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/lbl_pilih_alamat_lain"
+                        android:text="@string/lbl_alamat_pengiriman_text"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lbl_pilih_alamat_lain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/lbl_pilih_alamat_lain_text"
+                        android:textColor="@color/flat_red_1"
+                        android:textStyle="italic" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="12dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/cv_alamat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="24dp">
+
+                            <ProgressBar
+                                android:id="@+id/pb_alamat"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:padding="20dp" />
+
+
+                            <RelativeLayout
+                                android:id="@+id/selectedAddressLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tv_alamat_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold"
+                                    tools:text="Bpk. Almares" />
+
+                                <TextView
+                                    android:id="@+id/tv_alamat_address"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_alamat_name"
+                                    android:text="@string/sample_address_text_2" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/lbl_daftar_barang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Keranjang Anda"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="6dp">
+
+                        <TextView
+
+                            android:id="@+id/id_resep_dokter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Obat Resep"
+                            android:textColor="#FFAC0E0E"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+
+                            android:id="@+id/rv_daftar_barang_resep_dokter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <TextView
+
+                            android:id="@+id/id_non_resep_dokter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Obat Non Resep"
+                            android:textColor="#FFAC0E0E"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_daftar_barang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+
+                        <RelativeLayout
+                            android:id="@+id/rl_initial_subtotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="16dp"
+                            android:paddingHorizontal="24dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Subtotal Produk"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tv_initial_subtotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/green"
+                                android:textStyle="bold"
+                                tools:text="Rp. 100.000" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/rl_discount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingHorizontal="24dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Diskon Voucher"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tv_discount_by_voucher"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold"
+                                tools:text="Rp. 100.000" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_subtotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="16dp"
+                            android:paddingHorizontal="24dp">
+
+                            <TextView
+                                android:id="@+id/lbl_subtotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Harga Produk"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tv_subtotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/green"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:text="Rp. 100.000" />
+
+
+                            <TextView
+                                android:id="@+id/qty_daftar_barang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lbl_subtotal"
+                                android:text="@string/sample_qty"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_resep_dokter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/upload_title_text_button"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:cornerRadius="16dp" />
+
+                <TextView
+                    android:id="@+id/lbl_pengiriman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/lbl_pengiriman_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="16dp">
+
+                        <TextView
+                            android:id="@+id/ekspedisilist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_toEndOf="@id/logo"
+                            android:text="Ekspedisi Pengiriman : "
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/showEkspedisiList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            android:paddingVertical="10dp">
+
+                            <ImageView
+                                android:id="@+id/navigatetoekspedisilist"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                            <ImageView
+                                android:id="@+id/logo"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+                            <TextView
+                                android:id="@+id/showekspedisiListButtonText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@id/logo"
+                                android:text="Ekspedisi Pengiriman"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/ekspedisiPackageListButtonText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="24dp"
+                            android:text="Layanan : "
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/showEkspedisipackageList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            android:paddingVertical="10dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/navigatetoekspedisipackagelist"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                               android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                            <TextView
+                                android:id="@+id/showekspedisiPackageListButtonText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/tv_kurir_text"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_estimasihari"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="10dp"
+                            android:text="*Estimasi hari dihitung setelah paket diterima oleh kurir"
+                            android:textColor="@color/flat_red_1"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/cb_expedition_insurance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:paddingHorizontal="8dp"
+                            android:text="@string/insurance_option_title"
+                            android:textSize="16sp"
+                            android:visibility="gone" />
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp">
+
+                            <TextView
+                                android:id="@+id/tv_biaya_pengiriman_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:text="@string/tv_biaya_pengiriman_text"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_summary_biaya_pengiriman"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_biaya_pengiriman_title"
+                                android:layout_marginStart="24dp"
+                                android:text="Kurir Pilihan (Reguler)"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_promo_ongkir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_summary_biaya_pengiriman"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Potongan Ongkir"
+                                android:textColor="@color/black"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/tv_total_biaya_potongan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_promo_ongkir"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Total Biaya Pengiriman"
+                                android:textColor="@color/black"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/tv_insurance_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_total_biaya_potongan"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="12dp"
+                                android:text="Asuransi Pengiriman"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/tv_total_biaya_pengiriman"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_promo_ongkir"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="24dp"
+                                android:textColor="@color/green"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:text="Rp. 10.000" />
+
+                            <TextView
+                                android:id="@+id/tv_biaya_pengiriman"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_biaya_pengiriman_title"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="24dp"
+                                android:textColor="@color/green"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:text="Rp. 10.000" />
+
+                            <TextView
+                                android:id="@+id/tv_insurance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_total_biaya_potongan"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginEnd="24dp"
+                                android:textColor="@color/green"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:text="Rp. 10.000" />
+
+                            <TextView
+                                android:id="@+id/tv_ongkir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_summary_biaya_pengiriman"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="24dp"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:text="Rp. 10.000" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/lbl_pembayaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/lbl_pembayaran_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="12dp">
+
+                    <RelativeLayout
+                        android:id="@+id/showPaymentListButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:paddingVertical="16dp">
+
+                        <ImageView
+                            android:id="@+id/navigateToPaymentListIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                        <TextView
+                            android:id="@+id/showPaymentListButtonText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/payment_method_title"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="16dp">
+
+                        <RelativeLayout
+                            android:id="@+id/showInputVoucherButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="24dp">
+
+                            <ImageView
+                                android:id="@+id/voucherInputIcon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                              android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                            <TextView
+                                android:id="@+id/voucherInputButtonText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/voucher_input_title"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <net.cachapa.expandablelayout.ExpandableLayout
+                            android:id="@+id/el_voucher_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            app:el_expanded="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_transaction_voucher_outer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tv_transaction_voucher_title"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Voucher Transaksi"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_transaction_voucher"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:id="@+id/tv_transaction_voucher_code"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Voucher Transaksi"
+                                                android:textColor="@color/primaryColor"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:id="@+id/tv_transaction_voucher_desc"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@+id/tv_transaction_voucher_code"
+                                                android:layout_marginTop="4dp"
+                                                android:text="@string/click_to_see_more"
+                                                android:textColor="@color/green"
+                                                android:textSize="12sp"
+                                                android:textStyle="bold" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_cancel_transaction_voucher"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentEnd="true"
+                                                android:layout_centerVertical="true"
+                                                android:src="@drawable/ic_baseline_cancel_24" />
+
+                                        </RelativeLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btn_choose_transaction_voucher"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="Pilih Voucher"
+                                            android:textSize="12sp"
+                                            app:cornerRadius="16dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_expedition_voucher_outer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/ll_transaction_voucher_outer"
+                                        android:layout_marginTop="16dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tv_expedition_voucher_title"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Voucher Ongkir"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_expedition_voucher"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="6dp"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:id="@+id/tv_expedition_voucher_code"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerVertical="true"
+                                                android:text="Voucher Ongkir"
+                                                android:textColor="@color/primaryColor"
+                                                android:textStyle="bold" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_cancel_expedition_voucher"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentEnd="true"
+                                                android:layout_centerVertical="true"
+                                                android:src="@drawable/ic_baseline_cancel_24" />
+
+                                        </RelativeLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btn_choose_expedition_voucher"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="Pilih Voucher"
+                                            android:textSize="12sp"
+                                            app:cornerRadius="16dp" />
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                        </net.cachapa.expandablelayout.ExpandableLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <RelativeLayout
+                    android:id="@+id/rl_total_pembayaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="32dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_total_pembayaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/tv_total_pembayaran_text"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_nominal_total_pembayaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/green"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="Rp. 43.000,00" />
+
+                    <TextView
+                        android:id="@+id/qty_daftar_barang_final"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_total_pembayaran"
+                        android:text="@string/sample_qty"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_lanjut_bayar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/btn_lanjut_bayar_text"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+
+
+</layout>

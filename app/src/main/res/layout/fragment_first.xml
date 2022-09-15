@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/gradient_header"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_home_search_bar_layout"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="12dp"
+                android:layout_toStartOf="@+id/iv_navigation_drawer_trigger"
+                android:backgroundTint="@color/white"
+                android:focusable="false"
+                android:hint="Cari Produk"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_baseline_search_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_home_search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Cari Produk"
+                    android:inputType="text"
+                    android:paddingVertical="13dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/iv_navigation_drawer_trigger"
+                android:layout_width="28dp"
+                android:layout_centerVertical="true"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_baseline_menu_24"
+                android:tintMode="@color/white" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/baseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerLayout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="32dp"
+                android:layout_below="@+id/headerLayout">
+
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp" />
+
+                <RelativeLayout
+                    android:id="@+id/categoryListLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/carouselView">
+
+
+                    <TextView
+                        android:id="@+id/CategoriesItemsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Categories"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCategoriesList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/CategoriesItemsTitle"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp"
+                        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_categories" />
+
+                    <RelativeLayout
+                        android:id="@+id/rv_button_lainnya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/CategoriesItemsTitle"
+                        android:layout_marginTop="14dp"
+                        android:layout_toEndOf="@+id/rvCategoriesList"
+                        android:paddingHorizontal="6dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/LainnyaIcon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/white"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="7dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/lainnyaicon" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tv_category_name"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/LainnyaIcon"
+                            android:layout_marginTop="7dp"
+                            android:text="Lainnya"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <ProgressBar
+                        android:layout_below="@+id/CategoriesItemsTitle"
+                        android:id="@+id/pb_categories"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="24dp" />
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/rl_baseLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/categoryListLayout"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/promotedItemListLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@drawable/backgroundtopping">
+
+
+                        <TextView
+                            android:id="@+id/trendingItemsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Diskon Produk Pilihan "
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/trendingItemsTitle"
+                            android:layout_marginHorizontal="12dp"
+                            android:text="Belanja dengan diskon terbaik dari \nproduk-produk pilihan"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/promoItemsLoadMoreButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginVertical="12dp"
+                            android:textSize="10dp"
+                            android:background="@drawable/gradient_round"
+                            android:src="@drawable/ic_baseline_more_vert_24"
+                            android:text="Lihat Semua >"
+                            android:textStyle="bold"
+                            app:backgroundTint="@null" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="330dp"
+                        android:background="@drawable/backgroundtopping">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/sampleProductCard"
+                            style="@style/CardView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginVertical="6dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="6dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/relativeLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="14dp">
+
+                                <ImageView
+                                    android:id="@+id/promotedProductImage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="175dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/product1"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/promotedProductImage"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="2"
+                                    android:text="Cap Lang Balsem Lang 10gr"
+                                    android:textColor="#000"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductPriceAfterSale"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductName"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="6dp"
+                                    android:text="Rp. 5750"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/morePromotedOptionButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductPriceAfterSale"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="24dp"
+                                    android:background="@drawable/gradient_round"
+                                    android:text="+ Keranjang"
+                                    android:textSize="10dp"
+                                    app:backgroundTint="@color/flat_orange_1" />
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/sampleProductCard2"
+                            style="@style/CardView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginVertical="6dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="6dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/relativeLayout2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="14dp">
+
+                                <ImageView
+                                    android:id="@+id/promotedProductImage2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="175dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/product2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductName2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/promotedProductImage2"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="2"
+                                    android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                                    android:textColor="#000"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductPriceAfterSale2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductName2"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="6dp"
+                                    android:text="Rp. 90000"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/morePromotedOptionButton2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductPriceAfterSale2"
+                                    android:layout_marginHorizontal="16dp"
+                                   android:layout_marginTop="24dp"
+                                    android:background="@drawable/gradient_round"
+                                    android:src="@drawable/ic_baseline_more_vert_24"
+                                    android:text="+ Keranjang"
+                                    android:textSize="10dp"
+                                    app:backgroundTint="@null" />
+
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/LastSeenItemListLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/LastSeenItemsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Terakhir Dilihat"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/LastSeenLoadMoreButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="18dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Lihat Semua"
+                            android:textColor="@color/green"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/sampleProductCard3"
+                            style="@style/CardView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginVertical="6dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="6dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/relativeLayout3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="14dp">
+
+                                <ImageView
+                                    android:id="@+id/promotedProductImage3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="175dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/product2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductName3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/promotedProductImage3"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="2"
+                                    android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                                    android:textColor="#000"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductPriceAfterSale3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductName3"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="6dp"
+                                    android:text="Rp. 90000"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:id="@+id/morePromotedOptionButton3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductPriceAfterSale3"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:src="@drawable/ic_baseline_more_vert_24" />
+
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/sampleProductCard4"
+                            style="@style/CardView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginHorizontal="6dp"
+                            android:layout_marginVertical="6dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="6dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/relativeLayout4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="14dp">
+
+                                <ImageView
+                                    android:id="@+id/promotedProductImage4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="175dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/product1"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductName4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/promotedProductImage4"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="12dp"
+                                    android:maxLines="2"
+                                    android:text="Cap Lang Balsem Lang 10gr"
+                                    android:textColor="#000"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tvPromotedProductPriceAfterSale4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductName4"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="6dp"
+                                    android:text="Rp. 5750"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:id="@+id/morePromotedOptionButton4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tvPromotedProductPriceAfterSale4"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:src="@drawable/ic_baseline_more_vert_24" />
+
+                            </RelativeLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="32dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Loading"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <ProgressBar-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="48dp"-->
+            <!--                android:layout_marginStart="8dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/textView"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+
+</layout>
+
+

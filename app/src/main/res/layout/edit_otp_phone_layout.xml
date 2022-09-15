@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_otp_phone_edit_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phoneInputHint"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_otp_edit_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="8dp"
+        android:id="@+id/btn_cancel_new_phone"
+        style="@style/signOutButtonStyle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_otp_phone_edit_layout"
+        app:cornerRadius="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_toStartOf="@id/btn_save_new_phone"
+        android:text="@string/cancel_button_text"
+        android:textSize="12sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="8dp"
+        android:id="@+id/btn_save_new_phone"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        app:cornerRadius="16dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_otp_phone_edit_layout"
+        android:layout_alignParentEnd="true"
+        android:text="@string/save_change_button_text"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>

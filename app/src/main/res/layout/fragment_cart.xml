@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".dashboard.BasketFragment">
+
+    <RelativeLayout
+        android:id="@+id/baseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_round_header"
+                android:elevation="8dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/titleLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp">
+
+                    <ImageView
+                        android:id="@+id/backToPreviousPageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_baseline_arrow_back_24"
+                        app:tint="@color/white" />
+
+
+                    <TextView
+                        android:id="@+id/historyDetailTitle"
+                        style="@style/fragment_header_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/backToPreviousPageButton"
+                        android:text="Keranjang"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <!--            <include-->
+            <!--                layout="@layout/progress_bar"-->
+            <!--                android:id="@+id/progressBar" />-->
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeBaseLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headerLayout">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:checked="true"
+                        android:id="@+id/checkAllBasketItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Pilih Semua"
+                        android:textStyle="bold" />
+
+                    <!--                    <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                        android:id="@+id/rvBasket"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_below="@id/checkAllBasketItem"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:layout_marginBottom="84dp" />-->
+                    <RelativeLayout
+                        android:id="@+id/cartitem1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkAllBasketItem">
+
+                        <CheckBox
+                            android:id="@+id/basketItemCheckbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="16dp" />
+
+                        <ImageView
+                            android:id="@+id/itemBasketPicture"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_toEndOf="@id/basketItemCheckbox"
+                            android:src="@drawable/product2" />
+
+                        <TextView
+                            android:id="@+id/tvBasketItemName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/storefront1"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_toEndOf="@id/itemBasketPicture"
+                            android:maxLines="2"
+                            android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/storefront1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_toEndOf="@id/itemBasketPicture"
+                            android:src="@drawable/ic_baseline_storefront_24"
+                            app:tint="@color/purple_700" />
+
+                        <TextView
+                            android:id="@+id/shopname1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:layout_marginHorizontal="2dp"
+                            android:layout_toEndOf="@id/storefront1"
+                            android:maxLines="2"
+                            android:text="Apotek Generik 1"
+                            android:textColor="@color/purple_700"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tvBasketItemPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemName"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/itemBasketPicture"
+                            android:text="Rp. 90,000"
+                            android:textColor="@color/green"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/tvBasketTotalItemPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemQty"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Rp. 90,000"
+                            android:textColor="@color/green"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBasketItemQty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemName"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:text="1"
+                            android:textColor="@android:color/black" />
+
+
+                        <ImageView
+                            android:id="@+id/editItemInBasketButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemPrice"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_toEndOf="@id/itemBasketPicture"
+                            android:src="@drawable/ic_baseline_edit_24"
+                            app:tint="@color/green" />
+
+                        <ImageView
+                            android:id="@+id/deleteItemFromBasketButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemPrice"
+                            android:layout_marginTop="16dp"
+                            android:layout_toEndOf="@id/editItemInBasketButton"
+                            android:src="@drawable/ic_baseline_delete_24"
+                            app:tint="@color/flat_red_1" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_below="@+id/deleteItemFromBasketButton"
+                            android:layout_marginTop="12dp"
+                            android:background="@color/green" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/itemcart2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cartitem1">
+
+                        <CheckBox
+                            android:id="@+id/basketItemCheckbox1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="16dp" />
+
+                        <ImageView
+                            android:id="@+id/itemBasketPicture1"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_toEndOf="@id/basketItemCheckbox1"
+                            android:src="@drawable/product2" />
+
+                        <TextView
+                            android:id="@+id/tvBasketItemName1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/shopname"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toEndOf="@id/itemBasketPicture1"
+                            android:maxLines="2"
+                            android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/storefront"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_toEndOf="@id/itemBasketPicture1"
+                            android:src="@drawable/ic_baseline_storefront_24"
+                            app:tint="@color/purple_700" />
+
+                        <TextView
+                            android:id="@+id/shopname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_toEndOf="@id/storefront"
+                            android:maxLines="2"
+                            android:text="Apotek Generik 2"
+                            android:textColor="@color/purple_700"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBasketItemPrice1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemName1"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/itemBasketPicture1"
+                            android:text="Rp. 90,000"
+                            android:textColor="@color/green"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/tvBasketTotalItemPrice1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemQty1"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Rp. 90,000"
+                            android:textColor="@color/green"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBasketItemQty1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemName1"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:text="1"
+                            android:textColor="@android:color/black" />
+
+
+                        <ImageView
+                            android:id="@+id/editItemInBasketButton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemPrice1"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_toEndOf="@id/itemBasketPicture1"
+                            android:src="@drawable/ic_baseline_edit_24"
+                            app:tint="@color/green" />
+
+                        <ImageView
+                            android:id="@+id/deleteItemFromBasketButton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvBasketItemPrice1"
+                            android:layout_marginTop="16dp"
+                            android:layout_toEndOf="@id/editItemInBasketButton1"
+                            android:src="@drawable/ic_baseline_delete_24"
+                            app:tint="@color/flat_red_1" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_below="@+id/deleteItemFromBasketButton1"
+                            android:layout_marginTop="12dp"
+                            android:background="@color/green" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+            <TextView
+                android:id="@+id/emptyBasketMessage"
+                style="@style/empty_list_message_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Keranjang Anda Kosong"
+                android:visibility="invisible"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/checkOutOptionsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:paddingHorizontal="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/checkOutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:layout_marginStart="56dp"
+                android:layout_toEndOf="@id/tvTotalPriceInBasketLayout"
+                android:text="Beli"
+                app:backgroundTint="@null"
+                android:background="@drawable/gradient_round"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+
+            <LinearLayout
+                android:id="@+id/tvTotalPriceInBasketLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Harga"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTotalPriceInBasket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Rp. xx.xxx"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</layout>

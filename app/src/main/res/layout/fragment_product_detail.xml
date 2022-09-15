@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".product.ProductDetailFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/baseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/backToPreviousPageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@android:color/white"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:fabSize="mini" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addToWishlistButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/navigateToBasketButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@android:color/white"
+            android:src="@drawable/wishlist_icon"
+            app:backgroundTint="@color/primaryColor"
+            app:borderWidth="1px"
+            app:fabSize="mini" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/navigateToBasketButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@android:color/white"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            app:backgroundTint="@color/primaryColor"
+            app:borderWidth="1px"
+            app:fabSize="mini" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeBaseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/detailProductImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="375dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/product1"
+                        android:transitionName="imageView" />
+
+                    <View
+                        android:id="@+id/dividerLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_below="@id/detailProductImage"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="32dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/detailProductInformationLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dividerLine"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_header_product_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/detailProductName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16sp"
+                                android:layout_marginEnd="25dp"
+                                android:text="Cap Lang Balsem Lang 10gr"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tv_detail_product_stock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/detailProductName"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="19dp"
+                                android:layout_marginBottom="-8dp"
+                                android:text="Tersedia : 79"
+                                android:textColor="@color/green"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:id="@+id/detailProductPriceLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/detailProductName"
+                                android:layout_marginTop="15dp">
+
+                                <TextView
+                                    android:id="@+id/discountPercentage"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_toEndOf="@id/detailProductPrice"
+                                    android:background="@drawable/discount_tag_background"
+                                    android:paddingHorizontal="6dp"
+                                    android:paddingVertical="4dp"
+                                    android:text="30% OFF"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/detailProductPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="16dp"
+                                    android:text="Rp. 5,750"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/setQtyInputLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_detail_product_stock"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="12dp">
+
+                                <ImageView
+                                    android:id="@+id/decreaseItemQtyButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="2dp"
+                                    android:src="@drawable/ic_baseline_remove_circle_24" />
+
+                                <EditText
+                                    android:id="@+id/basketItemQtyEditText"
+                                    android:layout_width="45dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-10dp"
+                                    android:layout_marginEnd="2dp"
+                                    android:gravity="center_horizontal"
+                                    android:inputType="number" />
+
+                                <ImageView
+                                    android:id="@+id/increaseItemQtyButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_baseline_add_circle_24" />
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/detailProductAfterSalePrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/detailProductPriceLayout"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="2sp"
+                                android:text="Rp. 4,000"
+                                android:textColor="@color/primaryColor"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_dot_merah"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_below="@id/rl_header_product_detail"
+                            android:layout_marginLeft="16dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_obat_dot_merah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/rl_header_product_detail"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="6sp"
+                            android:layout_toEndOf="@id/iv_dot_merah"
+                            android:text="Obat Keras Harus disertai Resep"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/productDescriptionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_dot_merah"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="10sp"
+                            android:text="Deskripsi Produk"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/productSoldQty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_detail_product_description"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="12sp"
+                            android:text="Terjual : 79"
+                            android:textColor="@color/green"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_product_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/productDescriptionTitle"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="72dp"
+                            android:text="Balsem Lang merupakan balsem yang sudah tersedia lebih dari 40 tahun di indonesia yang terbuat dari campuran bahan-bahan alami berkualitas yang memiliki banyak manfaat.  *Keterangan kadaluarsa bisa terdapat perbedaan dari yang dicantumkan pada etalase/deskripsi, karena masing-masing produk masa kadaluarsa bisa berbeda.  Note : *Apabila pesanan sudah sampai mohon dapat dicek kelengkapannya serta kondisi produk yang diterima sebelum klik pesanan selesai *Pesanan yang sudah di klik selesai tidak bi"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="16dp"
+            android:visibility="visible"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/directBuyItemButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="Beli Langsung"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/primaryColor" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToCartButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:text="+ Keranjang"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>

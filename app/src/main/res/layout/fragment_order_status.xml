@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".orderstatus.OrderStatusDetailFragment">
+
+    <RelativeLayout
+        android:id="@+id/baseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_round_header"
+            android:elevation="8dp"
+            android:paddingTop="@dimen/header_vertical_padding"
+            android:paddingBottom="20dp">
+
+            <RelativeLayout
+                android:id="@+id/titleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp">
+
+                <ImageView
+                    android:id="@+id/backToPreviousPageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/historyDetailTitle"
+                    style="@style/fragment_header_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_toEndOf="@id/backToPreviousPageButton"
+                    android:text="@string/order_detail_title_text"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeBaseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerLayout">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/baseScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="32dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="16dp">
+
+                            <TextView
+                                android:id="@+id/tvOrderDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tvOrderNumber"
+                                android:text="@string/sample_date_text"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvOrderNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/order_id_sample"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/invoiceNumberButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:layout_alignParentEnd="true"
+                                android:backgroundTint="@color/green"
+                                android:text="Invoice"
+
+                                android:textSize="10sp"
+                                android:visibility="gone"
+                                android:textStyle="italic|bold"
+                                app:cornerRadius="12dp" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_invoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_invoice_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvOrderDate"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/tv_invoice_number_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No. Invoice"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_invoice_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="@string/sample_tracking"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/statusTimeline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="16dp">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_current_order_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/navigateToTrackingButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="34dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="end"
+                                    android:backgroundTint="@color/green"
+                                    android:text="Lacak"
+                                    android:textSize="10sp"
+                                    android:textStyle="italic|bold"
+                                    app:cornerRadius="12dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_current_order_status"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_toStartOf="@+id/navigateToTrackingButton"
+                                    android:text="Code Undefined"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold" />
+
+                                <cn.iwgang.countdownview.CountdownView
+                                    android:id="@+id/tv_duration_left"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginTop="2dp"
+                                    android:visibility="gone"
+                                    app:isShowHour="true"
+                                    app:isShowMinute="true"
+                                    app:isShowSecond="true"
+                                    app:suffixHour=":"
+                                    app:suffixMinute=":"
+                                    app:timeTextColor="@color/green"
+                                    app:timeTextSize="15dp" />
+                            </RelativeLayout>
+
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_see_payment_procedure"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="6dp"
+                                android:backgroundTint="@color/green"
+                                android:text="@string/navigate_to_payment_button_text"
+                                android:textSize="12sp"
+                                android:textStyle="italic|bold"
+                                android:visibility="gone"
+                                app:cornerRadius="12dp" />
+
+                            <LinearLayout
+                                android:id="@+id/global_status_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/orderOnProcessPointLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/iv_order_on_process_track_icon"
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_baseline_storefront_24"
+                                        app:tint="@color/primaryColor" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/iv_order_on_process_track_point"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_marginStart="4dp"
+                                            android:src="@drawable/ic_order_status" />
+
+                                        <View
+                                            android:id="@+id/vw_order_on_delivery_track_line"
+                                            android:layout_width="45dp"
+                                            android:layout_height="1dp"
+                                            android:layout_marginStart="4dp"
+                                            android:background="@color/primaryColor" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/orderOnDeliveryPointLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/iv_order_on_delivery_track_icon"
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_order_on_delivery" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/iv_order_on_delivery_track_point"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_marginStart="4dp"
+                                            android:src="@drawable/ic_order_status" />
+
+                                        <View
+                                            android:id="@+id/vw_order_arrived_track_line"
+                                            android:layout_width="45dp"
+                                            android:layout_height="1dp"
+                                            android:layout_marginStart="4dp"
+                                            android:background="@color/primaryColor" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/orderReceivedPointLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/iv_order_arrived_track_icon"
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_order_received" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/iv_order_arrived_track_point"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_marginStart="4dp"
+                                            android:src="@drawable/ic_order_status" />
+
+                                        <View
+                                            android:id="@+id/vw_order_finished_track_line"
+                                            android:layout_width="45dp"
+                                            android:layout_height="1dp"
+                                            android:layout_marginStart="4dp"
+                                            android:background="@color/primaryColor" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/orderFinishedPointLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/iv_order_finished_track_icon"
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_order_finished" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_order_finished_track_point"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_marginStart="4dp"
+                                        android:layout_marginTop="12dp"
+                                        android:src="@drawable/ic_order_status" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/setOrderToFinishedButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="16dp"
+                                android:backgroundTint="@color/primaryColor"
+                                android:text="@string/finish_order_string"
+                                android:textSize="12sp"
+                                android:textStyle="italic|bold"
+                                android:visibility="gone"
+                                app:cornerRadius="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/navigateToChatCOmplaintButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:backgroundTint="@color/green"
+                                android:text="Chat Komplain Anda"
+                                android:textAllCaps="false"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                app:cornerRadius="16dp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_tracking_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:paddingHorizontal="16dp">
+
+                        <TextView
+                            android:id="@+id/resiNumberTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No. Resi (J&amp;T)"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvResiNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/resiNumberTitle"
+                            android:text="@string/sample_tracking"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/copytrackingNumberButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/copy_button_text"
+                            android:textColor="@color/green"
+                            android:textSize="16sp"
+                            android:textStyle="italic|bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_virtual_account_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:paddingHorizontal="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_virtual_account_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/virtual_acc_number_title"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_virtual_account_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_virtual_account_title"
+                            android:text="@string/sample_tracking"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_copy_virtual_account_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/copy_button_text"
+                            android:textColor="@color/green"
+                            android:textSize="16sp"
+                            android:textStyle="italic|bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:paddingHorizontal="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Alamat Pengiriman"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvMemberNameInOrderDetail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="52dp"
+                                android:text="@string/sample_name_text"
+                                android:textColor="@android:color/black"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:id="@+id/tvMemberAddressInOrderDetail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="52dp"
+                                android:text="@string/sample_address_text_2"
+                                android:textColor="@android:color/black"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:id="@+id/tvMemberPhoneInOrderDetail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/sample_phone_text"
+                                android:textColor="@android:color/black"
+                                android:textStyle="italic" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/ll_complained_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="24dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="12dp">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_list_complain"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/rv_complain_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="16dp"
+                                  android:rotation="270"
+                                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_list_complained_title_text"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:id="@+id/pembatas1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_below="@+id/rv_complain_icon"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@color/primaryColor" />
+                            </RelativeLayout>
+
+                            <net.cachapa.expandablelayout.ExpandableLayout
+                                android:id="@+id/expand_rv_status_detail_complain"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_list_complain"
+                                android:background="@color/white"
+                                app:el_expanded="true">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvStatusDetailComplainedItem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </net.cachapa.expandablelayout.ExpandableLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/ll_ordered_item_resep_dokter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="24dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="12dp">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_list_order_resep_dokter"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/judul_produk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Produk Dipesan ( Resep Dokter )"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_check_resep"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="34dp"
+                                    android:layout_below="@id/judul_produk"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:backgroundTint="@color/green"
+                                    android:text="Resep Dokter"
+                                    android:textSize="10sp"
+                                    android:textStyle="italic|bold"
+                                    app:cornerRadius="12dp" />
+                                <ImageView
+                                    android:id="@+id/rv_item_icon_resep_dokter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="10dp"
+                                   android:rotation="270"
+                                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                                <View
+                                    android:id="@+id/pembatas_resep_dokter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_below="@+id/btn_check_resep"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@color/primaryColor" />
+                            </RelativeLayout>
+
+                            <net.cachapa.expandablelayout.ExpandableLayout
+                                android:id="@+id/expand_rv_status_detail_order_resep_dokter"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_list_order_resep_dokter"
+                                android:background="@color/white"
+                                app:el_expanded="true">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvStatusDetailOrderedItem_resep_dokter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp" />
+                            </net.cachapa.expandablelayout.ExpandableLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/ll_ordered_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="24dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="12dp">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_list_order"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Produk Dipesan"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:id="@+id/rv_item_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginHorizontal="16dp"
+                                    android:layout_marginTop="10dp"
+                                     android:rotation="270"
+                                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                                <View
+                                    android:id="@+id/pembatas"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_below="@+id/rv_item_icon"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@color/primaryColor" />
+                            </RelativeLayout>
+
+                            <net.cachapa.expandablelayout.ExpandableLayout
+                                android:id="@+id/expand_rv_status_detail_order"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_list_order"
+                                android:background="@color/white"
+                                app:el_expanded="true">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvStatusDetailOrderedItem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp" />
+                            </net.cachapa.expandablelayout.ExpandableLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <!--                    <androidx.recyclerview.widget.RecyclerView-->
+                    <!--                        android:id="@+id/rvStatusDetailOrderedItem"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp" />-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="24dp">
+
+                        <TextView
+                            android:id="@+id/tvTotalPriceInOrderDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dividerLine2"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/order_detail_discount_title"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentMethod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toEndOf="@+id/tvPaymentMethodTitle"
+                            android:gravity="end"
+                            android:text="@string/ovo"
+                            android:textColor="@android:color/black" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_discount_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvTotalPriceInOrderDetailTitle"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:id="@+id/tvDiscountInOrderDetailTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:text="@string/order_detail_discount_title"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvDiscount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="@string/order_detail_discount_title"
+                                android:textColor="@color/green" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_total_product_price_discounted"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tvDiscountInOrderDetailTitle"
+                                android:layout_marginTop="16dp">
+
+                                <TextView
+                                    android:id="@+id/tvDiscountedTotalPriceInOrderDetailTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:text="Total Harga Produk"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvDiscountedTotalPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="@string/order_detail_discount_title"
+                                    android:textColor="@color/primaryColor" />
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:id="@+id/rl_total_discount_by_voucher"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/rl_total_product_price_discounted"
+                                android:layout_marginTop="16dp">
+
+                                <TextView
+                                    android:id="@+id/tvDiscountedTotalPriceInOrderDetailByVoucherTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_toStartOf="@+id/tvDiscountedTotalPriceByVoucher"
+                                    android:text="@string/voucher_code_sample"
+                                    android:textColor="@android:color/black"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_applied_voucher"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tvDiscountedTotalPriceInOrderDetailByVoucherTitle"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_toStartOf="@+id/tvDiscountedTotalPriceByVoucher"
+                                    android:text="@string/voucher_code_sample"
+                                    android:textColor="@color/primaryColor"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvDiscountedTotalPriceByVoucher"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/order_detail_discount_title"
+                                    android:textColor="@color/primaryColor" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvSelectedCourierFee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_discount_detail"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/order_detail_discount_title"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPriceInOrderDetailTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dividerLine2"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:layout_toStartOf="@+id/tvTotalPriceInOrderDetail"
+                            android:text="@string/order_subtotal_price_with_variant"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentMethodTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="32dp"
+                            android:text="@string/payment_method_title"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/dividerLine2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/tvPaymentMethod"
+                            android:layout_marginTop="8dp"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:id="@+id/tvSelectedCourierFeeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_discount_detail"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_toStartOf="@+id/tvSelectedCourierFee"
+                            android:text="Biaya Kirim (J&amp;T)"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvSelectedCourierdiscountFeeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvSelectedCourierFeeTitle"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_toStartOf="@+id/tvSelectedCourierFee"
+                            android:text="Potongan harga Ongkir"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_insurance_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvSelectedCourierdiscountFeeTitle"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_toStartOf="@+id/tvSelectedCourierFee"
+                            android:text="Asuransi Pengiriman"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvSelectedCourierdiscountFee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvSelectedCourierFee"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/order_detail_discount_title"
+                            android:textColor="@color/primaryColor" />
+
+                        <TextView
+                            android:id="@+id/tv_insurance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvSelectedCourierdiscountFee"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/order_detail_discount_title"
+                            android:textColor="@android:color/black" />
+
+
+                        <View
+                            android:id="@+id/dividerLine4"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/tv_insurance_title"
+                            android:layout_marginTop="8dp"
+                            android:background="@android:color/darker_gray" />
+
+
+                        <TextView
+                            android:id="@+id/tvTotalPaymentInOrderDetailTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dividerLine4"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:text="@string/tv_total_pembayaran_text"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPaymentInOrderDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dividerLine4"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/order_detail_discount_title"
+                            android:textColor="@color/green"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cancelOrderButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="24dp"
+                        android:backgroundTint="@android:color/holo_red_light"
+                        android:text="Batalkan Pesanan"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:cornerRadius="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/refundOrderButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="24dp"
+                        android:backgroundTint="@android:color/holo_red_light"
+                        android:text="Komplain Pesanan"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:cornerRadius="16dp" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </RelativeLayout>
+
+</layout>

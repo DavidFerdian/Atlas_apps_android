@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/wishlistProductListDialogTitle"
+        style="@style/dialogTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masukkan item ke wishlist" />
+
+    <TextView
+        android:id="@+id/selectedItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wishlistProductListDialogTitle"
+        android:layout_marginTop="12dp"
+        android:text="Item : "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/selectedItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectedItemTitle"
+        android:layout_marginTop="6dp"
+        android:text="Masukkan item ke wishlist" />
+
+    <TextView
+        android:id="@+id/chooseWeekTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectedItem"
+        android:layout_marginTop="24dp"
+        android:text="Pilih Tanggal : "
+        android:textStyle="bold" />
+
+    <!--    <Spinner-->
+    <!--        android:id="@+id/weekSpinner"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="24dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_below="@id/chooseWeekTitle"/>-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/selectDateButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chooseWeekTitle"
+        android:layout_marginTop="11dp"
+        android:text="@string/choose_date_button_text"
+        android:textSize="12sp"
+        app:cornerRadius="16dp"
+        app:strokeColor="@color/primaryColor"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/tvSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseWeekTitle"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@id/selectDateButton"
+        android:text="Belum Dipilih"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/setQtyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectDateButton"
+        android:layout_marginTop="24dp"
+        android:text="Qty : "
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/setQtyInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setQtyTitle"
+        android:layout_marginTop="12dp"
+        android:hint="  Masukkan Qty"
+        app:helperTextEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/setQtyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirmCategoryButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_below="@id/setQtyInputLayout"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/save_change_button_text"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        app:cornerRadius="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/discardCategoryButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setQtyInputLayout"
+        android:layout_marginTop="32dp"
+        android:textStyle="bold"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@id/confirmCategoryButton"
+        android:text="@string/cancel_button_text"
+        android:textColor="@android:color/holo_red_light"
+        app:cornerRadius="16dp"
+        app:strokeColor="@android:color/holo_red_light" />
+
+
+</RelativeLayout>

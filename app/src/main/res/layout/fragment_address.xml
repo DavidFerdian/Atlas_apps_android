@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".AddressFragment">
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/cv_item_course"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardMaxElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/cl_items_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+
+        <TextView
+            android:id="@+id/tv_item_address_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/rb_select_address"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Bpk. Almares" />
+
+        <TextView
+            android:id="@+id/tv_item_address_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_address_name"
+            android:layout_marginTop="6dp"
+            android:gravity="start"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Jalan Utama Raya 53" />
+
+        <TextView
+            android:id="@+id/tv_item_address_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_item_address_detail"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="082124279581" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/tv_item_address_phone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/deleteAddressButton"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                app:tint="@color/flat_red_1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ganti_alamat"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/deleteAddressButton"
+                android:backgroundTint="@color/white"
+                android:text="Edit Alamat"
+                android:textColor="@color/primaryColor"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/flat_red_1" />
+        </RelativeLayout>
+
+        <RadioButton
+            android:id="@+id/rb_select_address"
+            android:layout_width="32dp"
+            android:layout_height="23dp"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_item_address_name" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_item_course2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/cl_items_payment2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+
+            <TextView
+                android:id="@+id/tv_item_address_name2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_toStartOf="@id/rb_select_address2"
+                android:textStyle="bold"
+                android:text="Bpk. Almares" />
+
+            <TextView
+                android:id="@+id/tv_item_address_detail2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_address_name2"
+                android:layout_marginTop="6dp"
+                android:gravity="start"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="Jalan Utama Raya 53" />
+
+            <TextView
+                android:id="@+id/tv_item_address_phone2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="start"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/tv_item_address_detail2"
+                android:text="082124279581" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/tv_item_address_phone2">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deleteAddressButton2"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    app:tint="@color/flat_red_1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_ganti_alamat2"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/deleteAddressButton2"
+                    android:backgroundTint="@color/white"
+                    android:text="Edit Alamat"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp"
+                    app:strokeColor="@color/flat_red_1" />
+            </RelativeLayout>
+
+            <RadioButton
+                android:id="@+id/rb_select_address2"
+                android:layout_width="32dp"
+                android:layout_height="23dp"
+                android:layout_alignParentEnd="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_item_address_name2" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

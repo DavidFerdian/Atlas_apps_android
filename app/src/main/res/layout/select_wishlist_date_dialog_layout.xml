@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="32dp">
+    <DatePicker
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wishlistDatePicker"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/selectWishlistDateButton"
+        style="@style/dialogButtonStyle"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_height="40dp"
+        android:layout_below="@id/wishlistDatePicker"
+        android:layout_marginTop="16dp"
+        app:cornerRadius="16dp"
+        android:text="Pilih" />
+
+</RelativeLayout>

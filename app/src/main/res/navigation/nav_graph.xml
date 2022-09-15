@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/bottomNavigationFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.atlas.DashboardFragment.HomeFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.atlas.IntroActivity"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/subCategoryFragment"
+        android:name="com.example.atlas.ProductFragment.subCategoryFragment"
+        android:label="fragment_sub_category"
+        tools:layout="@layout/fragment_sub_category">
+
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.atlas.ProductFragment.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.atlas.DashboardFragment.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.example.atlas.Payment.CheckOutFragment"
+        android:label="CheckOutFragment"
+        tools:layout="@layout/fragment_check_out">
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.atlas.LoginAndRegister.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLogin2"
+        android:name="com.example.atlas.LoginAndRegister.FragmentLogin2"
+        android:label="FragmentLogin2"
+        tools:layout="@layout/fragment_login2">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerPage1"
+        android:name="com.example.atlas.LoginAndRegister.RegisterPage1"
+        android:label="RegisterPage1"
+        tools:layout="@layout/fragment_register_page1">
+
+    </fragment>
+    <fragment
+        android:id="@+id/registerPage2"
+        android:name="com.example.atlas.LoginAndRegister.RegisterPage2"
+        android:label="RegisterPage2"
+        tools:layout="@layout/fragment_register_page2">
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="selectedBirthday"
+            app:argType="string" />
+        <argument
+            android:name="selectedGender"
+            app:argType="string" />
+        <argument
+            android:name="address"
+            app:argType="string" />
+        <argument
+            android:name="selectedCity"
+            app:argType="string" />
+        <argument
+            android:name="postalCode"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderStatusListFragment"
+        android:name="com.example.atlas.DashboardFragment.OrderStatusListFragment"
+        android:label="OrderStatusListFragment"
+        tools:layout="@layout/fragment_order_status_list">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderStatusFragment"
+        android:name="com.example.atlas.OrderStatus.OrderStatusFragment"
+        android:label="OrderStatusFragment"
+        tools:layout="@layout/fragment_order_status">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.example.atlas.Payment.RatingFragment"
+        android:label="RatingFragment"
+        tools:layout="@layout/fragment_rating">
+
+    </fragment>
+    <fragment
+        android:id="@+id/bottomNavigationFragment"
+        android:name="com.example.atlas.DashboardFragment.BottomNavigationFragment"
+        android:label="BottomNavigationFragment"
+        tools:layout="@layout/fragment_bottom_navigation"></fragment>
+    <action
+        android:id="@+id/action_registerPage2_to_FirstFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/action_orderStatusList_to_OrderStatusDetail"
+        app:destination="@+id/orderStatusFragment" />
+    <action
+        android:id="@+id/action_ratingFragment_to_FirstFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/action_orderStatus_to_RatingFragment"
+        app:destination="@+id/ratingFragment" />
+    <action
+        android:id="@+id/action_registerPage1_to_registerPage2"
+        app:destination="@id/registerPage2" />
+    <action
+        android:id="@+id/action_loginfragment1_to_FirstFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/action_SecondFragment_to_FirstFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/action_subcategory_to_productDetailFragment"
+        app:destination="@id/productDetailFragment" />
+    <action
+        android:id="@+id/action_productDetail_to_cartFragment"
+        app:destination="@id/cartFragment" />
+    <action
+        android:id="@+id/action_ProductDetail_to_CheckoutFragment"
+        app:destination="@+id/checkOutFragment" />
+    <action
+        android:id="@+id/action_CartFragment_to_CheckoutFragment"
+        app:destination="@+id/checkOutFragment" />
+    <action
+        android:id="@+id/action_checkoutFragment_to_FirstFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/action_loginfragment1_to_loginFragment2"
+        app:destination="@id/fragmentLogin2">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </action>
+    <action
+        android:id="@+id/action_FirstFragment_to_SecondFragment"
+        app:destination="@id/subCategoryFragment" />
+    <action
+        android:id="@+id/action_FirstFragment_to_productDetailFragment"
+        app:destination="@id/productDetailFragment" />
+    <action
+        android:id="@+id/action_firstFragment_to_cartFragment"
+        app:destination="@id/cartFragment" />
+    <action
+        android:id="@+id/action_firstFragment_to_loginpart1"
+        app:destination="@id/loginFragment" />
+    <action
+        android:id="@+id/action_Menu_to_registerpart1"
+        app:destination="@id/registerPage1" />
+    <action
+        android:id="@+id/action_FirstFragment_to_OrderList"
+        app:destination="@id/orderStatusListFragment" />
+    <action
+        android:id="@+id/action_Homefragment_to_MenuFragment"
+        app:destination="@id/menuFragment"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/donothing" />
+    <action
+        android:id="@+id/action_MenuFragment_to_HomeFragment"
+        app:destination="@id/bottomNavigationFragment"
+        app:exitAnim="@anim/slide_out_top" />
+    <action
+        android:id="@+id/action_splashScreenFragment_to_DashBoardFragment"
+        app:destination="@id/bottomNavigationFragment" />
+    <action
+        android:id="@+id/toprofileFragment"
+        app:destination="@+id/profileFragment"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        app:popEnterAnim="@android:anim/fade_in"
+        app:popExitAnim="@android:anim/fade_out"/>
+    <action
+        android:id="@+id/toRegisterOTPFragment"
+        app:destination="@+id/registerOTP"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        app:popEnterAnim="@android:anim/fade_in"
+        app:popExitAnim="@android:anim/fade_out">
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="selectedBirthday"
+            app:argType="string" />
+        <argument
+            android:name="selectedGender"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="address"
+            app:argType="string" />
+        <argument
+            android:name="province"
+            app:argType="string" />
+        <argument
+            android:name="city"
+            app:argType="string" />
+        <argument
+            android:name="district"
+            app:argType="string" />
+        <argument
+            android:name="postalCode"
+            app:argType="string" />
+    </action>
+    <action
+        android:id="@+id/toRegisterFragmentPart2"
+        app:destination="@+id/registerPage2"
+        app:enterAnim="@android:anim/fade_in"
+        app:exitAnim="@android:anim/fade_out"
+        app:popEnterAnim="@android:anim/fade_in"
+        app:popExitAnim="@android:anim/fade_out">
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="selectedBirthday"
+            app:argType="string" />
+        <argument
+            android:name="selectedGender"
+            app:argType="string" />
+        <argument
+            android:name="address"
+            app:argType="string" />
+        <argument
+            android:name="selectedCity"
+            app:argType="string" />
+        <argument
+            android:name="postalCode"
+            app:argType="string" />
+
+    </action>
+
+    <fragment
+        android:id="@+id/wishlistListFragment"
+        android:name="com.example.atlas.Wishlist.WishlistListFragment"
+        android:label="WishlistListFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.atlas.ProfilePackage.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/wishlistFragment"
+        android:name="com.example.atlas.Wishlist.WishlistFragment"
+        android:label="WishlistFragment" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.atlas.Menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/registerOTP"
+        android:name="com.example.atlas.LoginAndRegister.RegisterOTP"
+        android:label="RegisterOTP">
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="selectedBirthday"
+            app:argType="string" />
+        <argument
+            android:name="selectedGender"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="address"
+            app:argType="string" />
+        <argument
+            android:name="province"
+            app:argType="string" />
+        <argument
+            android:name="city"
+            app:argType="string" />
+        <argument
+            android:name="district"
+            app:argType="string" />
+        <argument
+            android:name="postalCode"
+            app:argType="string" />
+    </fragment>
+
+
+</navigation>

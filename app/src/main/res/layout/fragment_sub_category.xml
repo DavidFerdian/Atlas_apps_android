@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".subCategoryFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_round_header"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/bank_transfer_bottom_sheet_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/promotedProductImage"
+                android:layout_marginStart="12dp"
+                android:maxLines="2"
+                android:text="Daftar Produk"
+
+                android:textColor="#FFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollbaselayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerLayout">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/headerLayout">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/sampleProductCard4"
+                    style="@style/CardView"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginVertical="6dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp">
+
+                    <RelativeLayout
+                        android:id="@+id/baseLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:paddingHorizontal="24dp">
+
+                        <TextView
+                            android:id="@+id/bottom_sheet_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Diabetes"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/subcat_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/bottom_sheet_title"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:textStyle="bold"
+                            android:text="merupakan suatu penyakit yang pada umumnya memiliki suatu kesamaan gejala, yaitu buang air kecil dan rasa haus yang berlebihan."
+                            android:textColor="@android:color/black"
+                            android:textSize="14dp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <RelativeLayout
+                    android:id="@+id/promotedItemListLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sampleProductCard4">
+
+
+                    <TextView
+                        android:id="@+id/trendingItemsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Obat"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_list_obat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/promotedItemListLayout">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/sampleProductCard"
+                        style="@style/CardView"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_marginVertical="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="14dp">
+
+                            <ImageView
+                                android:id="@+id/promotedProductImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="175dp"
+                                android:layout_centerHorizontal="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/product1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/promotedProductImage"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="12dp"
+                                android:maxLines="2"
+                                android:text="Cap Lang Balsem Lang 10gr"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductPriceAfterSale"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductName"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="6dp"
+                                android:text="Rp. 5750"
+                                android:textColor="@color/green"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/morePromotedOptionButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductPriceAfterSale"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:src="@drawable/ic_baseline_more_vert_24" />
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/sampleProductCard2"
+                        style="@style/CardView"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_marginVertical="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="14dp">
+
+                            <ImageView
+                                android:id="@+id/promotedProductImage2"
+                                android:layout_width="match_parent"
+                                android:layout_height="175dp"
+                                android:layout_centerHorizontal="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/product2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductName2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/promotedProductImage2"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="12dp"
+                                android:maxLines="2"
+                                android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductPriceAfterSale2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductName2"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="6dp"
+                                android:text="Rp. 90000"
+                                android:textColor="@color/green"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/morePromotedOptionButton2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductPriceAfterSale2"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:src="@drawable/ic_baseline_more_vert_24" />
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/vitamin_suplement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_list_obat">
+
+
+                    <TextView
+                        android:id="@+id/vitamin_suplement_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Vitamin &amp; Suplemen"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vitamin_suplement">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/sampleProductCard1"
+                        style="@style/CardView"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_marginVertical="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="14dp">
+
+                            <ImageView
+                                android:id="@+id/promotedProductImage1"
+                                android:layout_width="match_parent"
+                                android:layout_height="175dp"
+                                android:layout_centerHorizontal="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/product1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/promotedProductImage1"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="12dp"
+                                android:maxLines="2"
+                                android:text="Cap Lang Balsem Lang 10gr"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductPriceAfterSale1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductName1"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="6dp"
+                                android:text="Rp. 5750"
+                                android:textColor="@color/green"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/morePromotedOptionButton1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductPriceAfterSale1"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:src="@drawable/ic_baseline_more_vert_24" />
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/sampleProductCard3"
+                        style="@style/CardView"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_marginVertical="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="14dp">
+
+                            <ImageView
+                                android:id="@+id/promotedProductImage3"
+                                android:layout_width="match_parent"
+                                android:layout_height="175dp"
+                                android:layout_centerHorizontal="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/product2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductName3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/promotedProductImage3"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="12dp"
+                                android:maxLines="2"
+                                android:text="Minyak Tawon FF 90ml / Minyak Urut / Minyak Pijit / Masuk Angin / Otot"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:id="@+id/tvPromotedProductPriceAfterSale3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductName3"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="6dp"
+                                android:text="Rp. 90000"
+                                android:textColor="@color/green"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/morePromotedOptionButton3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvPromotedProductPriceAfterSale3"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginHorizontal="16dp"
+                                android:src="@drawable/ic_baseline_more_vert_24" />
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

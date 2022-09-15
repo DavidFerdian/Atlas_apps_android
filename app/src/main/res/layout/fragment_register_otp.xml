@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".OTP.RegisterOTPFragment">
+    <RelativeLayout
+        android:id="@+id/baseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_round_header"
+            android:elevation="8dp"
+            android:paddingTop="@dimen/header_vertical_padding"
+            android:paddingBottom="20dp">
+
+            <RelativeLayout
+                android:id="@+id/titleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp">
+
+                <ImageView
+                    android:id="@+id/backToPreviousPageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/historyDetailTitle"
+                    style="@style/fragment_header_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@id/backToPreviousPageButton"
+                    android:text="@string/otp_ui_title"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_below="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_otp_phone_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="@dimen/margin_between_header_and_component"
+                    android:src="@drawable/ic_baseline_phone_android_24"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:id="@+id/tv_otp_instruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_otp_phone_logo"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/otp_instruction"
+                    android:textColor="@color/black" />
+
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/rl_inputted_phone"
+                    android:layout_below="@+id/tv_otp_instruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        android:id="@+id/tv_inputted_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sample_phone_text" />
+
+                    <ImageView
+                        android:id="@+id/iv_edit_phone_button"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_edit_24"/>
+
+                </RelativeLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/send_otp_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_inputted_phone"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/send_to_phone_number"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null"
+                    android:minHeight="20dip"
+                    android:background="@drawable/gradient_round"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/resend_otp_button"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_inputted_phone"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/resend_to_phone_number"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp" />
+
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/rl_resend_otp"
+                    android:layout_below="@+id/send_otp_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tv_otp_try_again_title"
+                        android:textColor="@color/black"
+                        android:layout_marginHorizontal="24dp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/otp_try_again_title" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tv_otp_try_again_countdown"
+                        android:textColor="@color/primaryColor"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_below="@+id/tv_otp_try_again_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/otp_try_again_countdown" />
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@color/flat_grey_light_2"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/rl_resend_otp"
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/dividerLine" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_otp_phone_layout"
+                    android:enabled="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dividerLine"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/kode_otp_hint"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_otp_phone"
+                        android:maxLength="6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/authenticate_otp_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_otp_phone_layout"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:enabled="false"
+                    android:text="@string/otp_ui_title"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp" />
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>
+
+

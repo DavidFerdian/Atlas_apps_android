@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".registration.RegisterFragmentPart2">
+
+    <RelativeLayout
+        android:id="@+id/registerPart2RootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <RelativeLayout
+                android:id="@+id/registerFormRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="32dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/pharmacyLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@color/white"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logodiabet"
+                    app:shapeAppearanceOverlay="@style/roundedCenturyLogoShape" />
+
+                <TextView
+                    android:id="@+id/registration_form_part2_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pharmacyLogo"
+                    android:layout_marginTop="32dp"
+                    android:text="Masukan Data Terkait Autentikasi"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registerEmailInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/registration_form_part2_title"
+                    android:layout_marginTop="24dp"
+                    android:hint="Email"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/registerEmailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registerUserNameInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/registerEmailInputLayout"
+                    android:layout_marginTop="10dp"
+                    android:hint="Username"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/registerUserNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registerNewPasswordInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/registerUserNameInputLayout"
+                    android:layout_marginTop="10dp"
+                    android:hint="Password Baru"
+                    app:endIconMode="password_toggle"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/registerNewPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registerConfirmPasswordInputLayout"
+                    android:layout_width="match_parent"
+                    app:endIconMode="password_toggle"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/registerNewPasswordInputLayout"
+                    android:layout_marginTop="10dp"
+                    android:hint="Konfirmasi Password"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/registerConfirmPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:id="@+id/ll_button_layout"
+                    android:layout_marginTop="24dp"
+                    android:layout_below="@id/registerConfirmPasswordInputLayout">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/backToPrevRegistrationPageButton"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:layout_height="wrap_content"
+                        app:cornerRadius="16dp"
+                        android:text="Kembali"
+                        android:textStyle="bold"
+                        app:backgroundTint="@android:color/white" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/finishRegistrationButton"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:textStyle="bold"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        app:cornerRadius="16dp"
+                        android:text="Selesai"
+                        app:backgroundTint="@android:color/white" />
+
+                </LinearLayout>
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_contact_us"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/ll_button_layout"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="24dp"-->
+<!--                    android:layout_marginBottom="36dp"-->
+<!--                    android:text="@string/redirect_wa_text"-->
+<!--                    android:textColor="@color/defaultWhite"-->
+<!--                    android:textSize="16sp" />-->
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

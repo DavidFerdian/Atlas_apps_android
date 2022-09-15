@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:enabled="false"
+        android:title="" />
+    <item
+        android:enabled="false"
+        android:title="" />
+    <item
+        android:enabled="false"
+        android:title="" />
+
+    <item android:title="AKTIVITAS">
+        <menu>
+            <item
+                android:id="@+id/HomeNavigation"
+                android:icon="@drawable/ic_baseline_home_24"
+                android:title="@string/home_title_text" />
+
+            <item
+                android:id="@+id/productNavigation"
+                android:icon="@drawable/ic_baseline_shopping_cart_24"
+                android:title="@string/product_list_title_text" />
+            <item
+                android:icon="@drawable/ic_baseline_shopping_basket_24"
+                android:id="@+id/basketNavigation"
+                android:title="@string/basket_ui_title" />
+
+            <item
+                android:icon="@drawable/ic_list_alt_24"
+                android:id="@+id/statusNavigation"
+                android:title="@string/order_status_title_text" />
+
+            <item
+                android:icon="@drawable/wishlist_icon"
+                android:id="@+id/wishlistNavigation"
+                android:title="@string/wishlist_title" />
+
+            <item
+                android:icon="@drawable/ic_baseline_chat_24"
+                android:id="@+id/chatNavigation"
+                android:title="@string/chat_ui_title" />
+        </menu>
+    </item>
+
+
+    <item android:title="AKUN">
+        <menu>
+            <item
+                android:icon="@drawable/ic_baseline_person_24"
+                android:id="@+id/loginNavigation"
+                android:title="Login" />
+            <item
+                android:icon="@drawable/ic_baseline_person_24"
+                android:id="@+id/registerNavigation"
+                android:title="Registrasi" />
+            <item
+                android:icon="@drawable/ic_baseline_person_24"
+                android:id="@+id/profileNavigation"
+                android:title="@string/profile_hyperlink" />
+        </menu>
+    </item>
+
+
+</menu>
